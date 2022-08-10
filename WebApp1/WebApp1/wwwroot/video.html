@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>video</title>
+</head>
+<body>
+	<h1>This is my video:</h1>
+
+	<video width="100%" controlsX autoplayX muted loopX poster="samples/poster.png">
+		<source src="samples/Sample.mp4" />
+		<p>Sorry, your browser does not support any normal video format. User Chrome!!</p>
+	</video>
+
+	<div>
+		<button id="btn">Play</button>
+		<button onclick="stop()">Stop</button>
+	</div>
+
+	<iframe src="html5-sample.html"></iframe>
+
+	<script>
+		const btnPlayPause = document.getElementById('btn');
+		//const video = document.getElementsByTagName('video')[0];
+		const video = document.querySelector('video');
+
+		btnPlayPause.addEventListener('click', function () {
+			if (video.paused) {
+				video.play();
+				btnPlayPause.innerText = 'Pause';
+			}
+			else {
+				video.pause();
+				btnPlayPause.innerText = 'Play';
+			}
+
+			//console.log('Play / Pause was clicked');
+		});
+
+		function stop() {
+			video.pause();
+			btnPlayPause.innerText = 'Play';
+			video.currentTime = 0;
+			//console.log('stop was clicked');
+		}
+	</script>
+</body>
+</html>
